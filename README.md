@@ -59,7 +59,7 @@ This configuration illustrates:
 
 ## License
 
-See [License.txt](License.txt) for license information.
+See [LICENSE](LICENSE) for license information.
 
 # Privacy Notice
 
