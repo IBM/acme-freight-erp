@@ -8,7 +8,10 @@ This service is part of the larger [Logistics Wizard](https://github.com/strongl
 
 ## Overview
 
-With the Logistics Wizard app, we focus on the planning and delivery of products from distribution centers to retail locations. The Logistics Wizard ERP service defines a subset of a full ERP system data model and the API to access this system.
+With the Acme Freight app, we focus on the planning and delivery of products from distribution centers to retail locations. Acme Freight's ERP service defines a subset of a full ERP system data model. 
+
+Acme Freight uses LoopBack to expose existing ERP data via an API and API Connect to secure and manage the API. ![](loopback-architecture.png)
+
 
 ### API Definition
 
