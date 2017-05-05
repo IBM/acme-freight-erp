@@ -20,17 +20,17 @@ Acme Freight uses LoopBack, an open source Node.js framework, built for quickly 
 To start learning more about Acme Freight and the technology behind it, jump to one of the tutorials below.
 
 ### Deploy Acme Freight
-* [Deploy your own Acme Freight with IBM DevOps Toolchain](https://github.com/ibm/acme-freight/TOOLCHAIN-README.md) 
+* [Deploy your own Acme Freight with IBM DevOps Toolchain](https://github.com/ibm/acme-freight/blob/master/TOOLCHAIN-README.md) 
 
 ### Rapidly Create APIs with the Node API Framework, LoopBack 
-* [Use LoopBack and API Connect to rapidly expose ERP data with APIs](https://github.com/ibm/acme-freight/APIC-ERP-README.md) 
+* [Use LoopBack and API Connect to rapidly expose ERP data with APIs](https://github.com/ibm/acme-freight/blob/master/APIC-ERP-README.md) 
 
 ### Create APIs for OpenWhisk actions in just a few clicks
-* [Create an API for your OpenWhisk actions on Bluemix](https://github.com/ibm/acme-freight/OW-NAPI-README.md) 
+* [Create an API for your OpenWhisk actions on Bluemix](https://github.com/ibm/acme-freight/blob/master/OW-NAPI-README.md) 
 
 
 ## Acme Freight Architecture
-![](https://github.com/ibm/acme-freight/acme-architecture.png)
+![](https://github.com/IBM/acme-freight/blob/master/acme-architecture.png)
 
 The following projects are leveraged in the overall Acme Freight solution:
 
