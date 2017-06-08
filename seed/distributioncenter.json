@@ -1,67 +1,79 @@
-[
-  {
-    "id": "1",
-    "address": {
-      "city": "Salt Lake City",
-      "state": "Utah",
-      "country": "US",
-      "latitude": 40.71,
-      "longitude": -111.90
-    },
-    "contact": {
-      "name": "Andrew Rich"
-    }
-  },
-  {
-    "id": "2",
-    "address": {
-      "city": "Cincinnati",
-      "state": "Ohio",
-      "country": "US",
-      "latitude": 39.10,
-      "longitude": -84.49
-    },
-    "contact": {
-      "name": "John Doe"
-    }
-  },
-  {
-    "id": "3",
-    "address": {
-      "city": "Albany",
-      "state": "New York",
-      "country": "US",
-      "latitude": 42.65,
-      "longitude": -73.75
-    },
-    "contact": {
-      "name": "Mary Joe"
-    }
-  },
-  {
-    "id": "4",
-    "address": {
-      "city": "San Francisco",
-      "state": "California",
-      "country": "US",
-      "latitude": 37.73,
-      "longitude": -122.44
-    },
-    "contact": {
-      "name": "Jane Joe"
-    }
-  },
-  {
-    "id": "5",
-    "address": {
-      "city": "Minot",
-      "state": "North Dakota",
-      "country": "US",
-      "latitude": 48.23,
-      "longitude": -101.29
-    },
-    "contact": {
-      "name": "Mindy Jackson"
-    }
-  }
-]
+''''
+   <?php
+/**
+**/*
+'[
+'  {
+ '   "id": "1",
+'    "address": {"30395 Veronda place",
+'      "city": "Temecula",
+'      "state": "California",
+'      "country": "US",
+'      "latitude": 40.71,
+'      "longitude": -111.90
+'    },
+'    "contact": {"ibm.watson.developer.cloud@gmail.com",
+'      "name": "Henry Baez"
+'    }
+'  },
+'  {
+ '   "id": "2",
+'    "address": {
+ '     "city": "Cincinnati",
+'      "state": "Ohio",
+'      "country": "US",
+'      "latitude": 39.10,
+'      "longitude": -84.49
+'    },
+'    "contact": {
+'      "name": "John Doe"
+'    }
+'  },
+'  {
+'    "id": "3",
+'    "address": {
+ '     "city": "Albany",
+'      "state": "New York",
+'      "country": "US",
+'      "latitude": 42.65,
+'      "longitude": -73.75
+'    },
+'    "contact": {
+'      "name": "Mary Joe"
+'    }
+'  },
+'  {
+'    "id": "4",
+ '   "address": {
+'      "city": "San Francisco",
+'      "state": "California",
+ '     "country": "US",
+'      "latitude": 37.73,
+'      "longitude": -122.44
+'    },
+'    "contact": {
+ '     "name": "Jane Joe"
+'    }
+'  },
+'  {
+'    "id": "5",
+'    "address": {
+ '     "city": "Minot",
+'      "state": "North Dakota",
+'      "country": "US",
+'      "latitude": 48.23,
+'      "longitude": -101.29
+'    },
+'    "contact": {
+'      "name": "Mindy Jackson"
+'    }
+'  }
+']
+'
+'@0072016
+' foo.gradle@gmail.com
+' https://developer.ibm.com/node.js
+' 2017-06-08T04:43:34
+'
+'?>
+'*/
