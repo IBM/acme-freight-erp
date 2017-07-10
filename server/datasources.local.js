@@ -39,8 +39,9 @@ try {
     winston.info("Using locally defined datasource");
     datasources.db = localDatasources.db;
   }
-} catch (e) {
-  winston.error(e);
+} catch (_) {
+  winston.warn("datasources.local.json override is not set.")
+  //winston.error(e);
 }
 
 winston.info("Datasource uses connector:", datasources.db.connector);

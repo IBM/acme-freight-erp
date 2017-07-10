@@ -1,0 +1,1492 @@
+swagger: '2.0'
+info:
+  x-ibm-name: logistics-wizard-erp
+  version: 1.0.0
+  title: logistics-wizard-erp
+schemes:
+  - https
+host: $(catalog.host)
+basePath: /api/v1
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)
+paths:
+  /Suppliers/replaceOrCreate:
+    post:
+      tags:
+        - Supplier
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Supplier.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Supplier'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Supplier'
+      deprecated: false
+  /Suppliers/upsertWithWhere:
+    post:
+      tags:
+        - Supplier
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: Supplier.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Supplier'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Supplier'
+      deprecated: false
+  '/Suppliers/{id}':
+    get:
+      tags:
+        - Supplier
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Supplier.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Supplier'
+      deprecated: false
+  '/Suppliers/{id}/replace':
+    post:
+      tags:
+        - Supplier
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: Supplier.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Supplier'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Supplier'
+      deprecated: false
+  /Suppliers:
+    get:
+      tags:
+        - Supplier
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Supplier.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Supplier'
+      deprecated: false
+  '/Products/{id}/distributionCenters':
+    get:
+      tags:
+        - Product
+      summary: Queries distributionCenters of Product.
+      operationId: Product.prototype.__get__distributionCenters
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DistributionCenter'
+      deprecated: false
+  /Products/replaceOrCreate:
+    post:
+      tags:
+        - Product
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Product.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Product'
+      deprecated: false
+  /Products/upsertWithWhere:
+    post:
+      tags:
+        - Product
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: Product.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Product'
+      deprecated: false
+  '/Products/{id}':
+    get:
+      tags:
+        - Product
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Product.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Product'
+      deprecated: false
+  '/Products/{id}/replace':
+    post:
+      tags:
+        - Product
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: Product.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Product'
+      deprecated: false
+  /Products:
+    get:
+      tags:
+        - Product
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Product.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+      deprecated: false
+  /DistributionCenters/replaceOrCreate:
+    post:
+      tags:
+        - DistributionCenter
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: DistributionCenter.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/DistributionCenter'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/DistributionCenter'
+      deprecated: false
+  /DistributionCenters/upsertWithWhere:
+    post:
+      tags:
+        - DistributionCenter
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: DistributionCenter.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/DistributionCenter'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/DistributionCenter'
+      deprecated: false
+  '/DistributionCenters/{id}':
+    get:
+      tags:
+        - DistributionCenter
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: DistributionCenter.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/DistributionCenter'
+      deprecated: false
+  '/DistributionCenters/{id}/replace':
+    post:
+      tags:
+        - DistributionCenter
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: DistributionCenter.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/DistributionCenter'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/DistributionCenter'
+      deprecated: false
+  /DistributionCenters:
+    get:
+      tags:
+        - DistributionCenter
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: DistributionCenter.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DistributionCenter'
+      deprecated: false
+  '/DistributionCenters/{id}/inventories':
+    get:
+      tags:
+        - DistributionCenter
+      summary: Gets inventories at the given distribution center.
+      operationId: DistributionCenter.getInventories
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: number
+          format: double
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Inventory'
+      deprecated: false
+  '/Shipments/{id}/distributionCenter':
+    get:
+      tags:
+        - Shipment
+      summary: Fetches belongsTo relation distributionCenter.
+      operationId: Shipment.prototype.__get__distributionCenter
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/DistributionCenter'
+      deprecated: false
+  '/Shipments/{id}/retailer':
+    get:
+      tags:
+        - Shipment
+      summary: Fetches belongsTo relation retailer.
+      operationId: Shipment.prototype.__get__retailer
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Retailer'
+      deprecated: false
+  '/Shipments/{id}/items':
+    get:
+      tags:
+        - Shipment
+      summary: Queries items of Shipment.
+      operationId: Shipment.prototype.__get__items
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LineItem'
+      deprecated: false
+    post:
+      tags:
+        - Shipment
+      summary: Adds new line items to a shipment
+      operationId: Shipment.addItems
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: number
+          format: double
+        - name: data
+          in: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LineItem'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LineItem'
+      deprecated: false
+  /Shipments:
+    post:
+      tags:
+        - Shipment
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Shipment.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Shipment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Shipment'
+      deprecated: false
+    get:
+      tags:
+        - Shipment
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Shipment.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Shipment'
+      deprecated: false
+  /Shipments/replaceOrCreate:
+    post:
+      tags:
+        - Shipment
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Shipment.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Shipment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Shipment'
+      deprecated: false
+  /Shipments/upsertWithWhere:
+    post:
+      tags:
+        - Shipment
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: Shipment.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Shipment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Shipment'
+      deprecated: false
+  '/Shipments/{id}':
+    get:
+      tags:
+        - Shipment
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Shipment.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Shipment'
+      deprecated: false
+    put:
+      tags:
+        - Shipment
+      summary: Updates the status of a shipment as it moves along the supply-chain.
+      operationId: Shipment.updateShipmentStatus
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: number
+          format: double
+        - name: data
+          in: body
+          description: >-
+            The update to apply to the Shipment. Only status,
+            estimatedTimeOfArrival and currentLocation can be updated
+          required: true
+          schema:
+            description: >-
+              The update to apply to the Shipment. Only status,
+              estimatedTimeOfArrival and currentLocation can be updated
+            $ref: '#/definitions/Shipment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Shipment'
+      deprecated: false
+    delete:
+      tags:
+        - Shipment
+      summary: Cancels the given shipment.
+      operationId: Shipment.cancelShipment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: number
+          format: double
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Shipments/{id}/replace':
+    post:
+      tags:
+        - Shipment
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: Shipment.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Shipment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Shipment'
+      deprecated: false
+  '/Retailers/{id}/manager':
+    get:
+      tags:
+        - Retailer
+      summary: Fetches belongsTo relation manager.
+      operationId: Retailer.prototype.__get__manager
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ERPUser'
+      deprecated: false
+  '/Retailers/{id}/inventories':
+    get:
+      tags:
+        - Retailer
+      summary: Queries inventories of Retailer.
+      operationId: Retailer.prototype.__get__inventories
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Inventory'
+      deprecated: false
+  /Retailers/replaceOrCreate:
+    post:
+      tags:
+        - Retailer
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Retailer.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Retailer'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Retailer'
+      deprecated: false
+  /Retailers/upsertWithWhere:
+    post:
+      tags:
+        - Retailer
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: Retailer.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Retailer'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Retailer'
+      deprecated: false
+  '/Retailers/{id}':
+    get:
+      tags:
+        - Retailer
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Retailer.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Retailer'
+      deprecated: false
+  '/Retailers/{id}/replace':
+    post:
+      tags:
+        - Retailer
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: Retailer.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Retailer'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Retailer'
+      deprecated: false
+  /Retailers:
+    get:
+      tags:
+        - Retailer
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Retailer.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Retailer'
+      deprecated: false
+  '/Users/{id}/roles':
+    get:
+      tags:
+        - ERPUser
+      summary: Queries roles of ERPUser.
+      operationId: ERPUser.prototype.__get__roles
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: User id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Role'
+      deprecated: false
+  /Users/replaceOrCreate:
+    post:
+      tags:
+        - ERPUser
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: ERPUser.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/ERPUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ERPUser'
+      deprecated: false
+  /Users/upsertWithWhere:
+    post:
+      tags:
+        - ERPUser
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: ERPUser.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/ERPUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ERPUser'
+      deprecated: false
+  '/Users/{id}/replace':
+    post:
+      tags:
+        - ERPUser
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: ERPUser.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/ERPUser'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ERPUser'
+      deprecated: false
+  /Users/login:
+    post:
+      tags:
+        - ERPUser
+      summary: Login a user with username/email and password.
+      operationId: ERPUser.login
+      parameters:
+        - name: credentials
+          in: body
+          required: true
+          schema:
+            type: object
+        - name: include
+          in: query
+          description: >-
+            Related objects to include in the response. See the description of
+            return value for more details.
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: >+
+              The response body contains properties of the AccessToken created
+              on login.
+
+              Depending on the value of `include` parameter, the body may
+              contain additional properties:
+
+
+
+
+
+
+
+                - `user` - `U+007BUserU+007D` - Data of the currently logged in
+
+              user. (`include=user`)
+
+
+
+
+            type: object
+      deprecated: false
+  /Users/logout:
+    post:
+      tags:
+        - ERPUser
+      summary: Logout a user with access token.
+      operationId: ERPUser.logout
+      parameters: []
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Demos/replaceOrCreate:
+    post:
+      tags:
+        - Demo
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
+      operationId: Demo.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Demo'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Demo'
+      deprecated: false
+  /Demos/upsertWithWhere:
+    post:
+      tags:
+        - Demo
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: Demo.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Demo'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Demo'
+      deprecated: false
+  '/Demos/{id}/replace':
+    post:
+      tags:
+        - Demo
+      summary: >-
+        Replace attributes for a model instance and persist it into the data
+        source.
+      operationId: Demo.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Demo'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Demo'
+      deprecated: false
+  /Demos:
+    post:
+      tags:
+        - Demo
+      summary: Creates a new Demo environment
+      operationId: Demo.newDemo
+      parameters: []
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Demo'
+      deprecated: false
+  '/Demos/findByGuid/{guid}':
+    get:
+      tags:
+        - Demo
+      summary: Retrieves the Demo environment with the given guid
+      operationId: Demo.findByGuid
+      parameters:
+        - name: guid
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Demo'
+      deprecated: false
+  '/Demos/{guid}/retailers':
+    get:
+      tags:
+        - Demo
+      summary: Returns all retailers
+      operationId: Demo.retailers
+      parameters:
+        - name: guid
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Retailer'
+      deprecated: false
+  '/Demos/{guid}/loginAs':
+    post:
+      tags:
+        - Demo
+      summary: Logs in as the specified user belonging to the given demo environment
+      operationId: Demo.loginAs
+      parameters:
+        - name: guid
+          in: path
+          required: true
+          type: string
+        - name: userId
+          in: formData
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/LoginResponse'
+      deprecated: false
+  '/Demos/{guid}':
+    delete:
+      tags:
+        - Demo
+      summary: Deletes the given demo environment
+      operationId: Demo.deleteByGuid
+      parameters:
+        - name: guid
+          in: path
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Demos/{guid}/createUser':
+    post:
+      tags:
+        - Demo
+      summary: Adds a new Retail Store manager to the given demo environment
+      operationId: Demo.createUserByGuid
+      parameters:
+        - name: guid
+          in: path
+          required: true
+          type: string
+        - name: retailerId
+          in: formData
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/ERPUser'
+      deprecated: false
+definitions:
+  Supplier:
+    properties:
+      name:
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - name
+    additionalProperties: false
+  x-any:
+    properties: {}
+  DistributionCenter:
+    properties:
+      id:
+        type: number
+        format: double
+      address:
+        $ref: '#/definitions/Address'
+      contact:
+        $ref: '#/definitions/Contact'
+    additionalProperties: false
+  Product:
+    properties:
+      name:
+        type: string
+      id:
+        type: number
+        format: double
+      supplierId:
+        type: number
+        format: double
+    required:
+      - name
+    additionalProperties: false
+  Inventory:
+    properties:
+      quantity:
+        default: 0
+        type: number
+        format: double
+      id:
+        type: number
+        format: double
+      productId:
+        type: number
+        format: double
+      locationId:
+        type: number
+        format: double
+      locationType:
+        type: string
+    additionalProperties: false
+  Retailer:
+    properties:
+      id:
+        type: number
+        format: double
+      address:
+        $ref: '#/definitions/Address'
+      managerId:
+        type: number
+        format: double
+    additionalProperties: false
+  LineItem:
+    properties:
+      quantity:
+        default: 0
+        type: number
+        format: double
+      productId:
+        type: number
+        format: double
+      id:
+        type: number
+        format: double
+      shipmentId:
+        type: number
+        format: double
+    required:
+      - quantity
+      - productId
+    additionalProperties: false
+  Shipment:
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      deliveredAt:
+        type: string
+        format: date-time
+      estimatedTimeOfArrival:
+        type: string
+        format: date-time
+      fromId:
+        type: number
+        format: double
+      seed:
+        type: boolean
+      status:
+        default: NEW
+        type: string
+      toId:
+        type: number
+        format: double
+      updatedAt:
+        type: string
+        format: date-time
+      averageSpeed:
+        type: number
+        format: double
+      shipmentHumidity:
+        type: number
+        format: double
+      shipmentTemp:
+        type: number
+        format: double
+      id:
+        type: number
+        format: double
+      currentLocation:
+        $ref: '#/definitions/Address'
+    required:
+      - createdAt
+      - estimatedTimeOfArrival
+      - fromId
+      - status
+      - toId
+    additionalProperties: false
+  ERPUser:
+    properties:
+      username:
+        type: string
+      email:
+        type: string
+      created:
+        type: string
+        format: date-time
+      id:
+        type: number
+        format: double
+      demoId:
+        type: number
+        format: double
+    required:
+      - email
+    additionalProperties: false
+  Role:
+    properties:
+      id:
+        type: number
+        format: double
+      name:
+        type: string
+      description:
+        type: string
+      created:
+        type: string
+        format: date-time
+      modified:
+        type: string
+        format: date-time
+    required:
+      - name
+    additionalProperties: false
+  Demo:
+    properties:
+      createdAt:
+        type: string
+        format: date-time
+      guid:
+        type: string
+      id:
+        type: number
+        format: double
+    required:
+      - createdAt
+    additionalProperties: false
+  LoginResponse:
+    properties:
+      token:
+        $ref: '#/definitions/AccessToken'
+      user:
+        $ref: '#/definitions/ERPUser'
+    additionalProperties: false
+  Address:
+    properties:
+      city:
+        type: string
+      state:
+        type: string
+      country:
+        type: string
+      latitude:
+        type: number
+        format: double
+      longitude:
+        type: number
+        format: double
+      id:
+        type: string
+    additionalProperties: false
+  Contact:
+    properties:
+      name:
+        type: string
+      id:
+        type: string
+    required:
+      - name
+    additionalProperties: false
+  AccessToken:
+    properties:
+      id:
+        type: string
+      ttl:
+        default: 1209600
+        description: time to live in seconds (2 weeks by default)
+        type: number
+        format: double
+      created:
+        type: string
+        format: date-time
+      userId:
+        type: number
+        format: double
+    required:
+      - id
+    additionalProperties: false
