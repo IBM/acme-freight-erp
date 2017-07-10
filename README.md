@@ -1,3 +1,7 @@
+| **master** | [![Build Status](https://travis-ci.org/IBM/acme-freight-erp.svg?branch=master)](https://travis-ci.org/IBM/acme-freight-erp) [![Coverage Status](https://coveralls.io/repos/github/IBM/acme-freight-erp/badge.svg?branch=master)](https://coveralls.io/github/IBM/acme-freight-erp?branch=master) |
+| ----- | ----- |
+| **dev** | [![Build Status](https://travis-ci.org/IBM/acme-freight-erp.svg?branch=dev)](https://travis-ci.org/IBM/acme-freight-erp) [![Coverage Status](https://coveralls.io/repos/github/IBM/acme-freight-erp/badge.svg?branch=dev)](https://coveralls.io/github/IBM/acme-freight-erp?branch=dev)|
+
 # Acme Freight ERP Quick Links
 - [Go to the Acme Freight journey website](http://developer.ibm.com/code/journey/unlock-enterprise-data-using-apis?cm_mmc=github-code-_-native-_-acme-_-journey&cm_mmca1=000019RT&cm_mmca2=10004796)
 - [View the main Acme Freight repository](https://github.com/ibm/acme-freight)
