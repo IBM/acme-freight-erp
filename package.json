@@ -20,7 +20,7 @@
     "heartbeats": "5.0.1",
     "helmet": "3.1.0",
     "http": "0.0.0",
-    "loopback": "2.36.0",
+    "loopback": "3.27.0",
     "loopback-boot": "2.23.0",
     "loopback-component-explorer": "2.7.0",
     "loopback-connector-postgresql": "2.7.0",
